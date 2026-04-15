@@ -51,7 +51,7 @@ const MiniCalendar = ({ payments = [] }) => {
           color: isToday ? 'primary.contrastText' : 'text.primary',
           fontWeight: isToday ? 700 : 400,
           fontSize: 13,
-          '&:hover': hasPayment ? { bgcolor: 'primary.main', color: 'white' } : {},
+          '&:hover': hasPayment ? { bgcolor: 'primary.main', color: 'primary.contrastText' } : {},
           position: 'relative',
         }}
       >

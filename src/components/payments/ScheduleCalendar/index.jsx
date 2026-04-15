@@ -1,4 +1,5 @@
 import { useState } from 'react';
+import { alpha } from '@mui/material/styles';
 import Box from '@mui/material/Box';
 import Typography from '@mui/material/Typography';
 import IconButton from '@mui/material/IconButton';
@@ -56,7 +57,11 @@ const ScheduleCalendar = ({ payments = [] }) => {
           borderRadius: 1,
           border: '1px solid',
           borderColor: isSelected ? 'primary.main' : 'divider',
-          bgcolor: isToday ? 'primary.50' : isSelected ? 'primary.50' : 'background.paper',
+          bgcolor: isToday
+            ? (theme) => alpha(theme.palette.primary.main, 0.1)
+            : isSelected
+            ? (theme) => alpha(theme.palette.primary.main, 0.1)
+            : 'background.paper',
           cursor: dayPayments.length > 0 ? 'pointer' : 'default',
           '&:hover': dayPayments.length > 0 ? { borderColor: 'primary.main' } : {},
         }}

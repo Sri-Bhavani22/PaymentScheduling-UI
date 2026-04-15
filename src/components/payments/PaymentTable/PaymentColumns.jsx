@@ -1,3 +1,5 @@
+import Button from '@mui/material/Button';
+
 const PaymentColumns = (navigate) => [
   { field: 'id', headerName: 'Payment ID', width: 120 },
   { field: 'payeeName', headerName: 'Payee Name', flex: 1, minWidth: 160 },
@@ -44,18 +46,12 @@ const PaymentColumns = (navigate) => [
     sortable: false,
     filterable: false,
     renderCell: (params) => (
-      <button
+      <Button
+        size="small"
         onClick={() => navigate(`/payments/${params.row.id}`)}
-        style={{
-          background: 'none',
-          border: 'none',
-          color: '#1565C0',
-          cursor: 'pointer',
-          fontWeight: 600,
-        }}
       >
         View
-      </button>
+      </Button>
     ),
   },
 ];

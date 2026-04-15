@@ -1,6 +1,4 @@
-import { createTheme } from '@mui/material/styles';
-
-const theme = createTheme({
+const themeConfig = {
   palette: {
     primary: {
       main: '#1565C0',
@@ -25,10 +23,6 @@ const theme = createTheme({
     },
     success: {
       main: '#2E7D32',
-    },
-    background: {
-      default: '#F5F7FA',
-      paper: '#FFFFFF',
     },
   },
   typography: {
@@ -57,10 +51,12 @@ const theme = createTheme({
       },
     },
     MuiCard: {
+      defaultProps: {
+        elevation: 2,
+      },
       styleOverrides: {
         root: {
           borderRadius: 12,
-          boxShadow: '0 2px 12px rgba(0,0,0,0.08)',
         },
       },
     },
@@ -72,6 +68,6 @@ const theme = createTheme({
       },
     },
   },
-});
+};
 
-export default theme;
+export default themeConfig;

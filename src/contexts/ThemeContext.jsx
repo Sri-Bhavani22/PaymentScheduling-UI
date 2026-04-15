@@ -1,7 +1,7 @@
 import { createContext, useContext, useState, useMemo } from 'react';
 import { ThemeProvider as MuiThemeProvider, createTheme } from '@mui/material/styles';
 import CssBaseline from '@mui/material/CssBaseline';
-import baseTheme from '../theme/theme';
+import themeConfig from '../theme/theme';
 
 const ThemeContext = createContext(null);
 
@@ -11,9 +11,9 @@ export const ThemeProvider = ({ children }) => {
   const theme = useMemo(
     () =>
       createTheme({
-        ...baseTheme,
+        ...themeConfig,
         palette: {
-          ...baseTheme.palette,
+          ...themeConfig.palette,
           mode,
         },
       }),

@@ -14,7 +14,7 @@ const cardConfig = [
     key: 'scheduled',
     label: 'Total Scheduled',
     icon: <CalendarMonthIcon fontSize="large" />,
-    color: '#1565C0',
+    color: 'primary.main',
     getValue: (payments) => payments.filter((p) => p.status === 'Scheduled' || p.status === 'Pending').length,
     format: (v) => v,
   },
@@ -22,7 +22,7 @@ const cardConfig = [
     key: 'amount',
     label: 'Total Amount',
     icon: <AttachMoneyIcon fontSize="large" />,
-    color: '#2E7D32',
+    color: 'secondary.main',
     getValue: (payments) =>
       payments
         .filter((p) => p.status === 'Scheduled' || p.status === 'Pending')
@@ -33,7 +33,7 @@ const cardConfig = [
     key: 'completed',
     label: 'Completed',
     icon: <CheckCircleIcon fontSize="large" />,
-    color: '#388E3C',
+    color: 'success.main',
     getValue: (payments) => payments.filter((p) => p.status === 'Completed').length,
     format: (v) => v,
   },
@@ -41,7 +41,7 @@ const cardConfig = [
     key: 'failed',
     label: 'Failed',
     icon: <ErrorIcon fontSize="large" />,
-    color: '#D32F2F',
+    color: 'error.main',
     getValue: (payments) => payments.filter((p) => p.status === 'Failed').length,
     format: (v) => v,
   },
