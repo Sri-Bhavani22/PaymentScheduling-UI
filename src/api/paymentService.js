@@ -19,7 +19,7 @@ export const getPayments = async (params) => {
     }
     if (params?.search) {
       const q = params.search.toLowerCase();
-      data = data.filter((p) => p.payeeName.toLowerCase().includes(q));
+      data = data.filter((p) => p.paymentName.toLowerCase().includes(q));
     }
     return { data };
   }

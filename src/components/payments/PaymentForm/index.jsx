@@ -8,18 +8,18 @@ import Step from '@mui/material/Step';
 import StepLabel from '@mui/material/StepLabel';
 import Button from '@mui/material/Button';
 import CircularProgress from '@mui/material/CircularProgress';
-import PayeeStep from './PayeeStep';
+import RecipientStep from './RecipientStep';
 import PaymentStep from './PaymentStep';
 import ReviewStep from './ReviewStep';
-import { payeeSchema, paymentSchema, fullSchema } from './validationSchema';
+import { recipientSchema, paymentSchema, fullSchema } from './validationSchema';
 import { useCreatePayment } from '../../../hooks/usePayments';
 import { useNotification } from '../../../hooks/useNotification';
 
-const steps = ['Payee Details', 'Payment Details', 'Review & Confirm'];
-const stepSchemas = [payeeSchema, paymentSchema, fullSchema];
+const steps = ['Recipient Details', 'Payment Details', 'Review & Confirm'];
+const stepSchemas = [recipientSchema, paymentSchema, fullSchema];
 
 const defaultValues = {
-  payeeName: '',
+  paymentName: '',
   accountNumber: '',
   bankIfsc: '',
   email: '',
@@ -74,7 +74,7 @@ const PaymentForm = () => {
   const renderStep = () => {
     switch (activeStep) {
       case 0:
-        return <PayeeStep control={control} />;
+        return <RecipientStep control={control} />;
       case 1:
         return <PaymentStep control={control} />;
       case 2:

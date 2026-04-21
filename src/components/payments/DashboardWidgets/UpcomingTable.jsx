@@ -33,7 +33,7 @@ const UpcomingTable = ({ payments = [] }) => {
       <Table size="small">
         <TableHead>
           <TableRow>
-            <TableCell>Payee</TableCell>
+            <TableCell>Payment Name</TableCell>
             <TableCell align="right">Amount</TableCell>
             <TableCell>Date</TableCell>
             <TableCell>Status</TableCell>
@@ -43,7 +43,7 @@ const UpcomingTable = ({ payments = [] }) => {
         <TableBody>
           {upcoming.map((p) => (
             <TableRow key={p.id} hover>
-              <TableCell>{p.payeeName}</TableCell>
+              <TableCell>{p.paymentName}</TableCell>
               <TableCell align="right">{formatCurrency(p.amount, p.currency)}</TableCell>
               <TableCell>{dayjs(p.startDate).format('DD MMM YYYY')}</TableCell>
               <TableCell>

@@ -63,7 +63,7 @@ const SchedulePage = () => {
                 {items.map((p) => (
                   <ListItem key={p.id} divider>
                     <ListItemText
-                      primary={p.payeeName}
+                      primary={p.paymentName}
                       secondary={`${formatCurrency(p.amount, p.currency)} — ${p.paymentType}`}
                     />
                     <StatusChip status={p.status} />

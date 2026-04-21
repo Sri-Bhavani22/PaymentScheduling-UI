@@ -8,13 +8,13 @@ vi.mock('react-router-dom', async () => {
 });
 
 const mockPayments = [
-  { id: '1', payeeName: 'A', amount: 100, currency: 'INR', startDate: '2026-04-20', status: 'Scheduled' },
-  { id: '2', payeeName: 'B', amount: 200, currency: 'INR', startDate: '2026-04-18', status: 'Pending' },
-  { id: '3', payeeName: 'C', amount: 300, currency: 'INR', startDate: '2026-04-25', status: 'Scheduled' },
-  { id: '4', payeeName: 'D', amount: 400, currency: 'INR', startDate: '2026-04-22', status: 'Completed' },
-  { id: '5', payeeName: 'E', amount: 500, currency: 'INR', startDate: '2026-04-19', status: 'Scheduled' },
-  { id: '6', payeeName: 'F', amount: 600, currency: 'INR', startDate: '2026-04-17', status: 'Pending' },
-  { id: '7', payeeName: 'G', amount: 700, currency: 'INR', startDate: '2026-04-30', status: 'Scheduled' },
+  { id: '1', paymentName: 'A', amount: 100, currency: 'INR', startDate: '2026-04-20', status: 'Scheduled' },
+  { id: '2', paymentName: 'B', amount: 200, currency: 'INR', startDate: '2026-04-18', status: 'Pending' },
+  { id: '3', paymentName: 'C', amount: 300, currency: 'INR', startDate: '2026-04-25', status: 'Scheduled' },
+  { id: '4', paymentName: 'D', amount: 400, currency: 'INR', startDate: '2026-04-22', status: 'Completed' },
+  { id: '5', paymentName: 'E', amount: 500, currency: 'INR', startDate: '2026-04-19', status: 'Scheduled' },
+  { id: '6', paymentName: 'F', amount: 600, currency: 'INR', startDate: '2026-04-17', status: 'Pending' },
+  { id: '7', paymentName: 'G', amount: 700, currency: 'INR', startDate: '2026-04-30', status: 'Scheduled' },
 ];
 
 describe('UpcomingTable', () => {

@@ -23,13 +23,13 @@ const ReviewStep = ({ values, onEditStep }) => {
       <Grid size={{ xs: 12, md: 6 }}>
         <Paper variant="outlined" sx={{ p: 3 }}>
           <Box sx={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', mb: 2 }}>
-            <Typography variant="h6">Payee Details</Typography>
+            <Typography variant="h6">Recipient Details</Typography>
             <Button size="small" startIcon={<EditIcon />} onClick={() => onEditStep(0)}>
               Edit
             </Button>
           </Box>
           <Divider sx={{ mb: 2 }} />
-          <ReviewField label="Payee Name" value={values.payeeName} />
+          <ReviewField label="Payment Name" value={values.paymentName} />
           <ReviewField label="Account Number" value={values.accountNumber} />
           <ReviewField label="Bank / IFSC" value={values.bankIfsc} />
           <ReviewField label="Email" value={values.email} />

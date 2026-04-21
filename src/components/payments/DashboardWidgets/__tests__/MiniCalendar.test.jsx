@@ -22,7 +22,7 @@ describe('MiniCalendar', () => {
   });
 
   const payments = [
-    { id: '1', startDate: '2026-04-15', payeeName: 'Test' },
+    { id: '1', startDate: '2026-04-15', paymentName: 'Test' },
   ];
 
   it('displays current month and year', () => {

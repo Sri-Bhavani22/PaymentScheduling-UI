@@ -13,7 +13,7 @@ vi.mock('react-router-dom', async () => {
 const mockPayments = [
   {
     id: 'PAY-001',
-    payeeName: 'Acme Corp',
+    paymentName: 'Acme Corp',
     amount: 250000,
     currency: 'INR',
     startDate: '2026-04-15',
@@ -23,7 +23,7 @@ const mockPayments = [
   },
   {
     id: 'PAY-002',
-    payeeName: 'Global Traders',
+    paymentName: 'Global Traders',
     amount: 75000,
     currency: 'INR',
     startDate: '2026-04-16',
@@ -33,7 +33,7 @@ const mockPayments = [
   },
   {
     id: 'PAY-003',
-    payeeName: 'CloudServe Ltd',
+    paymentName: 'CloudServe Ltd',
     amount: 45000,
     currency: 'USD',
     startDate: '2026-04-01',
@@ -59,7 +59,7 @@ describe('PaymentTable', () => {
     const user = userEvent.setup();
     render(<PaymentTable payments={mockPayments} />);
 
-    await user.type(screen.getByPlaceholderText(/search payee/i), 'acme');
+    await user.type(screen.getByPlaceholderText(/search payment/i), 'acme');
 
     expect(screen.getByText('Acme Corp')).toBeInTheDocument();
     expect(screen.queryByText('Global Traders')).not.toBeInTheDocument();
@@ -77,8 +77,8 @@ describe('PaymentTable', () => {
     const user = userEvent.setup();
     render(<PaymentTable payments={mockPayments} />);
 
-    // Click on Payee Name header to sort
-    await user.click(screen.getByText('Payee Name'));
+    // Click on Payment Name header to sort
+    await user.click(screen.getByText('Payment Name'));
 
     // Should still render all rows
     expect(screen.getByText('Acme Corp')).toBeInTheDocument();

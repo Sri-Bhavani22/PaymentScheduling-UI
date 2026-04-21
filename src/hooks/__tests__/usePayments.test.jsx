@@ -27,7 +27,7 @@ describe('usePayments', () => {
   });
 
   it('fetches payments data', async () => {
-    const mockData = [{ id: 'PAY-001', payeeName: 'Test' }];
+    const mockData = [{ id: 'PAY-001', paymentName: 'Test' }];
     paymentService.getPayments.mockResolvedValue({ data: mockData });
 
     const { result } = renderHook(() => usePayments(), { wrapper: createWrapper() });
@@ -55,7 +55,7 @@ describe('usePayment', () => {
   });
 
   it('fetches payment by id', async () => {
-    const mockPayment = { id: 'PAY-001', payeeName: 'Test' };
+    const mockPayment = { id: 'PAY-001', paymentName: 'Test' };
     paymentService.getPaymentById.mockResolvedValue({ data: mockPayment });
 
     const { result } = renderHook(() => usePayment('PAY-001'), {
@@ -80,7 +80,7 @@ describe('useCreatePayment', () => {
   });
 
   it('invalidates queries on success', async () => {
-    const newPayment = { id: 'PAY-099', payeeName: 'New' };
+    const newPayment = { id: 'PAY-099', paymentName: 'New' };
     paymentService.createPayment.mockResolvedValue({ data: newPayment });
 
     const queryClient = new QueryClient({
@@ -93,7 +93,7 @@ describe('useCreatePayment', () => {
 
     const { result } = renderHook(() => useCreatePayment(), { wrapper });
 
-    result.current.mutate({ payeeName: 'New', amount: 100 });
+    result.current.mutate({ paymentName: 'New', amount: 100 });
 
     await waitFor(() => expect(result.current.isSuccess).toBe(true));
     expect(spy).toHaveBeenCalledWith({ queryKey: ['payments'] });

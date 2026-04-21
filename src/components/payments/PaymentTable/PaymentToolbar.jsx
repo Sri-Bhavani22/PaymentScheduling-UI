@@ -17,7 +17,7 @@ const PaymentToolbar = ({ search, onSearchChange, statusFilter, onStatusChange, 
     <Box sx={{ display: 'flex', gap: 2, mb: 2, flexWrap: 'wrap', alignItems: 'center' }}>
       <TextField
         size="small"
-        placeholder="Search payee..."
+        placeholder="Search payment..."
         value={search}
         onChange={(e) => onSearchChange(e.target.value)}
         slotProps={{

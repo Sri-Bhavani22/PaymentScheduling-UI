@@ -1,9 +1,9 @@
 import * as yup from 'yup';
 
-export const payeeSchema = yup.object({
-  payeeName: yup
+export const recipientSchema = yup.object({
+  paymentName: yup
     .string()
-    .required('Payee name is required')
+    .required('Payment name is required')
     .min(2, 'Minimum 2 characters')
     .max(100, 'Maximum 100 characters'),
   accountNumber: yup
@@ -40,4 +40,4 @@ export const paymentSchema = yup.object({
   description: yup.string().max(250, 'Maximum 250 characters').notRequired(),
 });
 
-export const fullSchema = payeeSchema.concat(paymentSchema);
+export const fullSchema = recipientSchema.concat(paymentSchema);

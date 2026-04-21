@@ -1,11 +1,11 @@
 import Grid from '@mui/material/Grid';
 import FormField from '../../common/FormField';
 
-const PayeeStep = ({ control }) => {
+const RecipientStep = ({ control }) => {
   return (
     <Grid container spacing={3}>
       <Grid size={{ xs: 12, sm: 6 }}>
-        <FormField name="payeeName" control={control} label="Payee Name" />
+        <FormField name="paymentName" control={control} label="Payment Name" />
       </Grid>
       <Grid size={{ xs: 12, sm: 6 }}>
         <FormField name="accountNumber" control={control} label="Account Number" />
@@ -26,4 +26,4 @@ const PayeeStep = ({ control }) => {
   );
 };
 
-export default PayeeStep;
+export default RecipientStep;

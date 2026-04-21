@@ -16,7 +16,7 @@ describe('ScheduleCalendar', () => {
   const payments = [
     {
       id: 'PAY-001',
-      payeeName: 'Acme Corp',
+      paymentName: 'Acme Corp',
       amount: 250000,
       currency: 'INR',
       startDate: '2026-04-15',
@@ -71,9 +71,9 @@ describe('ScheduleCalendar', () => {
 
   it('renders multiple payments badge for dates with more than 2 payments', () => {
     const manyPayments = [
-      { id: '1', payeeName: 'A Corp', amount: 100, currency: 'INR', startDate: '2026-04-15', status: 'Scheduled', paymentType: 'One-time' },
-      { id: '2', payeeName: 'B Corp', amount: 200, currency: 'INR', startDate: '2026-04-15', status: 'Pending', paymentType: 'One-time' },
-      { id: '3', payeeName: 'C Corp', amount: 300, currency: 'INR', startDate: '2026-04-15', status: 'Completed', paymentType: 'One-time' },
+      { id: '1', paymentName: 'A Corp', amount: 100, currency: 'INR', startDate: '2026-04-15', status: 'Scheduled', paymentType: 'One-time' },
+      { id: '2', paymentName: 'B Corp', amount: 200, currency: 'INR', startDate: '2026-04-15', status: 'Pending', paymentType: 'One-time' },
+      { id: '3', paymentName: 'C Corp', amount: 300, currency: 'INR', startDate: '2026-04-15', status: 'Completed', paymentType: 'One-time' },
     ];
     render(<ScheduleCalendar payments={manyPayments} />);
     expect(screen.getByText('payments')).toBeInTheDocument();

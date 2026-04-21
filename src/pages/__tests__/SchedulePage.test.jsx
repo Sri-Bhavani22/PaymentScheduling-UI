@@ -32,7 +32,7 @@ describe('SchedulePage', () => {
 
   it('renders calendar view by default', () => {
     const payments = [
-      { id: '1', payeeName: 'Test', amount: 100, currency: 'INR', startDate: '2026-04-15', status: 'Scheduled', paymentType: 'One-time' },
+      { id: '1', paymentName: 'Test', amount: 100, currency: 'INR', startDate: '2026-04-15', status: 'Scheduled', paymentType: 'One-time' },
     ];
     usePayments.mockReturnValue({ data: payments, isLoading: false });
     render(<SchedulePage />);
@@ -43,7 +43,7 @@ describe('SchedulePage', () => {
   it('toggles to list view', async () => {
     const user = userEvent.setup();
     const payments = [
-      { id: '1', payeeName: 'Test Payee', amount: 100, currency: 'INR', startDate: '2026-04-15', status: 'Scheduled', paymentType: 'One-time' },
+      { id: '1', paymentName: 'Test Payee', amount: 100, currency: 'INR', startDate: '2026-04-15', status: 'Scheduled', paymentType: 'One-time' },
     ];
     usePayments.mockReturnValue({ data: payments, isLoading: false });
     render(<SchedulePage />);

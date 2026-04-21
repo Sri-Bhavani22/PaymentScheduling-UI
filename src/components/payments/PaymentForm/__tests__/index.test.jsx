@@ -25,10 +25,10 @@ describe('PaymentForm', () => {
     vi.clearAllMocks();
   });
 
-  it('renders step 0 (Payee Details) initially', () => {
+  it('renders step 0 (Recipient Details) initially', () => {
     render(<PaymentForm />);
-    expect(screen.getByText('Payee Details')).toBeInTheDocument();
-    expect(screen.getByLabelText(/payee name/i)).toBeInTheDocument();
+    expect(screen.getByText('Recipient Details')).toBeInTheDocument();
+    expect(screen.getByLabelText(/payment name/i)).toBeInTheDocument();
   });
 
   it('shows validation errors when Next is clicked without filling fields', async () => {
@@ -38,7 +38,7 @@ describe('PaymentForm', () => {
     await user.click(screen.getByRole('button', { name: /next/i }));
 
     await waitFor(() => {
-      expect(screen.getByText(/payee name is required/i)).toBeInTheDocument();
+      expect(screen.getByText(/payment name is required/i)).toBeInTheDocument();
     });
   });
 
@@ -47,7 +47,7 @@ describe('PaymentForm', () => {
     render(<PaymentForm />);
 
     // Fill step 0
-    await user.type(screen.getByLabelText(/payee name/i), 'Test Payee');
+    await user.type(screen.getByLabelText(/payment name/i), 'Test Payee');
     await user.type(screen.getByLabelText(/account number/i), '12345678');
     await user.type(screen.getByLabelText(/bank/i), 'SBIN0001234');
 
@@ -62,7 +62,7 @@ describe('PaymentForm', () => {
     await user.click(screen.getByRole('button', { name: /back/i }));
 
     await waitFor(() => {
-      expect(screen.getByLabelText(/payee name/i)).toBeInTheDocument();
+      expect(screen.getByLabelText(/payment name/i)).toBeInTheDocument();
     });
   });
 
@@ -72,7 +72,7 @@ describe('PaymentForm', () => {
     render(<PaymentForm />);
 
     // Fill step 0
-    await user.type(screen.getByLabelText(/payee name/i), 'Test Payee');
+    await user.type(screen.getByLabelText(/payment name/i), 'Test Payee');
     await user.type(screen.getByLabelText(/account number/i), '12345678');
     await user.type(screen.getByLabelText(/bank/i), 'SBIN0001234');
     await user.click(screen.getByRole('button', { name: /next/i }));
@@ -115,7 +115,7 @@ describe('PaymentForm', () => {
     render(<PaymentForm />);
 
     // Fill step 0
-    await user.type(screen.getByLabelText(/payee name/i), 'Test Payee');
+    await user.type(screen.getByLabelText(/payment name/i), 'Test Payee');
     await user.type(screen.getByLabelText(/account number/i), '12345678');
     await user.type(screen.getByLabelText(/bank/i), 'SBIN0001234');
     await user.click(screen.getByRole('button', { name: /next/i }));

@@ -30,7 +30,7 @@ describe('paymentService (mock mode)', () => {
     it('filters by search (case-insensitive)', async () => {
       const result = await paymentService.getPayments({ search: 'acme' });
       result.data.forEach((p) => {
-        expect(p.payeeName.toLowerCase()).toContain('acme');
+        expect(p.paymentName.toLowerCase()).toContain('acme');
       });
     });
   });
@@ -52,7 +52,7 @@ describe('paymentService (mock mode)', () => {
   describe('createPayment', () => {
     it('generates ID, Scheduled status, and timeline', async () => {
       const result = await paymentService.createPayment({
-        payeeName: 'Test User',
+        paymentName: 'Test User',
         amount: 500,
       });
       expect(result.data.id).toMatch(/^PAY-/);
@@ -70,7 +70,7 @@ describe('paymentService (mock mode)', () => {
       });
       expect(result.data.amount).toBe(999);
       expect(result.data.id).toBe('PAY-001');
-      expect(result.data.payeeName).toBeDefined();
+      expect(result.data.paymentName).toBeDefined();
     });
   });
 

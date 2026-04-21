@@ -19,6 +19,6 @@ describe('CreatePaymentPage', () => {
   it('renders heading and PaymentForm', () => {
     render(<CreatePaymentPage />);
     expect(screen.getByText('Create Payment')).toBeInTheDocument();
-    expect(screen.getByText('Payee Details')).toBeInTheDocument();
+    expect(screen.getByText('Recipient Details')).toBeInTheDocument();
   });
 });

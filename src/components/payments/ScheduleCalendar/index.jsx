@@ -78,7 +78,7 @@ const ScheduleCalendar = ({ payments = [] }) => {
               dayPayments.map((p) => (
                 <Chip
                   key={p.id}
-                  label={`${p.payeeName.slice(0, 10)}..`}
+                  label={`${p.paymentName.slice(0, 10)}..`}
                   size="small"
                   color={
                     p.status === 'Completed'
@@ -141,7 +141,7 @@ const ScheduleCalendar = ({ payments = [] }) => {
             {selectedPayments.map((p) => (
               <ListItem key={p.id} divider>
                 <ListItemText
-                  primary={p.payeeName}
+                  primary={p.paymentName}
                   secondary={`${formatCurrency(p.amount, p.currency)} — ${p.paymentType}`}
                 />
                 <StatusChip status={p.status} />

@@ -4,7 +4,7 @@ import userEvent from '@testing-library/user-event';
 import ReviewStep from '../ReviewStep';
 
 const values = {
-  payeeName: 'Test Payee',
+  paymentName: 'Test Payee',
   accountNumber: '12345678',
   bankIfsc: 'SBIN0001234',
   email: 'test@example.com',
@@ -18,7 +18,7 @@ const values = {
 };
 
 describe('ReviewStep', () => {
-  it('displays all payee and payment fields', () => {
+  it('displays all recipient and payment fields', () => {
     const onEditStep = vi.fn();
     render(<ReviewStep values={values} onEditStep={onEditStep} />);
 
@@ -38,7 +38,7 @@ describe('ReviewStep', () => {
     render(<ReviewStep values={values} onEditStep={onEditStep} />);
 
     const editButtons = screen.getAllByText('Edit');
-    await user.click(editButtons[0]); // Payee Details Edit
+    await user.click(editButtons[0]); // Recipient Details Edit
     expect(onEditStep).toHaveBeenCalledWith(0);
 
     await user.click(editButtons[1]); // Payment Details Edit

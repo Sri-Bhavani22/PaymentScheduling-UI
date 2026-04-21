@@ -2,7 +2,7 @@ import Button from '@mui/material/Button';
 
 const PaymentColumns = (navigate) => [
   { field: 'id', headerName: 'Payment ID', width: 120 },
-  { field: 'payeeName', headerName: 'Payee Name', flex: 1, minWidth: 160 },
+  { field: 'paymentName', headerName: 'Payment Name', flex: 1, minWidth: 160 },
   {
     field: 'amount',
     headerName: 'Amount',

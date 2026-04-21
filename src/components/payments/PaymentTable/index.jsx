@@ -19,7 +19,7 @@ import { formatDate } from '../../../utils/formatDate';
 
 const columns = [
   { id: 'id', label: 'Payment ID', sortable: true },
-  { id: 'payeeName', label: 'Payee Name', sortable: true },
+  { id: 'paymentName', label: 'Payment Name', sortable: true },
   { id: 'amount', label: 'Amount', sortable: true, align: 'right' },
   { id: 'startDate', label: 'Scheduled Date', sortable: true },
   { id: 'frequency', label: 'Frequency' },
@@ -40,7 +40,7 @@ const PaymentTable = ({ payments = [] }) => {
     let data = [...payments];
     if (search) {
       const q = search.toLowerCase();
-      data = data.filter((p) => p.payeeName.toLowerCase().includes(q));
+      data = data.filter((p) => p.paymentName.toLowerCase().includes(q));
     }
     if (statusFilter !== 'All') {
       data = data.filter((p) => p.status === statusFilter);
@@ -62,10 +62,10 @@ const PaymentTable = ({ payments = [] }) => {
   };
 
   const handleExport = () => {
-    const header = 'ID,Payee,Amount,Currency,Date,Frequency,Status\n';
+    const header = 'ID,Payment Name,Amount,Currency,Date,Frequency,Status\n';
     const rows = filtered
       .map((p) =>
-        [p.id, p.payeeName, p.amount, p.currency, p.startDate, p.frequency || 'One-time', p.status].join(',')
+        [p.id, p.paymentName, p.amount, p.currency, p.startDate, p.frequency || 'One-time', p.status].join(',')
       )
       .join('\n');
     const blob = new Blob([header + rows], { type: 'text/csv' });
@@ -113,7 +113,7 @@ const PaymentTable = ({ payments = [] }) => {
             {paginatedData.map((p) => (
               <TableRow key={p.id} hover sx={{ cursor: 'pointer' }} onClick={() => navigate(`/payments/${p.id}`)}>
                 <TableCell>{p.id}</TableCell>
-                <TableCell>{p.payeeName}</TableCell>
+                <TableCell>{p.paymentName}</TableCell>
                 <TableCell align="right">{formatCurrency(p.amount, p.currency)}</TableCell>
                 <TableCell>{formatDate(p.startDate)}</TableCell>
                 <TableCell>

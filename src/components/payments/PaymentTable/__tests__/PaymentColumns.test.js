@@ -13,7 +13,7 @@ describe('PaymentColumns', () => {
   it('includes expected fields', () => {
     const fields = columns.map((c) => c.field);
     expect(fields).toContain('id');
-    expect(fields).toContain('payeeName');
+    expect(fields).toContain('paymentName');
     expect(fields).toContain('amount');
     expect(fields).toContain('startDate');
     expect(fields).toContain('frequency');

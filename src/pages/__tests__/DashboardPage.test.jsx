@@ -25,7 +25,7 @@ describe('DashboardPage', () => {
 
   it('renders widgets when loaded', () => {
     const mockPayments = [
-      { id: '1', payeeName: 'Test', amount: 1000, currency: 'INR', status: 'Scheduled', startDate: '2026-04-15' },
+      { id: '1', paymentName: 'Test', amount: 1000, currency: 'INR', status: 'Scheduled', startDate: '2026-04-15' },
     ];
     usePayments.mockReturnValue({ data: mockPayments, isLoading: false });
     render(<DashboardPage />);

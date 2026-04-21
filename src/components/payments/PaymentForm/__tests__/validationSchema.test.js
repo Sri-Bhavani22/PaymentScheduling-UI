@@ -1,48 +1,48 @@
 import { describe, it, expect } from 'vitest';
-import { payeeSchema, paymentSchema, fullSchema } from '../validationSchema';
+import { recipientSchema, paymentSchema, fullSchema } from '../validationSchema';
 
-describe('payeeSchema', () => {
-  const validPayee = {
-    payeeName: 'John Doe',
+describe('recipientSchema', () => {
+  const validRecipient = {
+    paymentName: 'John Doe',
     accountNumber: '12345678',
     bankIfsc: 'SBIN0001234',
   };
 
   it('passes with valid data', async () => {
-    await expect(payeeSchema.validate(validPayee)).resolves.toBeDefined();
+    await expect(recipientSchema.validate(validRecipient)).resolves.toBeDefined();
   });
 
   it('fails when required fields are missing', async () => {
-    await expect(payeeSchema.validate({})).rejects.toThrow();
+    await expect(recipientSchema.validate({})).rejects.toThrow();
   });
 
   it('fails when accountNumber is too short', async () => {
     await expect(
-      payeeSchema.validate({ ...validPayee, accountNumber: '1234' })
+      recipientSchema.validate({ ...validRecipient, accountNumber: '1234' })
     ).rejects.toThrow(/8-16 digits/);
   });
 
   it('fails when accountNumber is too long', async () => {
     await expect(
-      payeeSchema.validate({ ...validPayee, accountNumber: '12345678901234567' })
+      recipientSchema.validate({ ...validRecipient, accountNumber: '12345678901234567' })
     ).rejects.toThrow(/8-16 digits/);
   });
 
   it('fails when bankIfsc has invalid format', async () => {
     await expect(
-      payeeSchema.validate({ ...validPayee, bankIfsc: 'INVALID' })
+      recipientSchema.validate({ ...validRecipient, bankIfsc: 'INVALID' })
     ).rejects.toThrow(/IFSC/);
   });
 
   it('passes with optional email', async () => {
     await expect(
-      payeeSchema.validate({ ...validPayee, email: 'test@example.com' })
+      recipientSchema.validate({ ...validRecipient, email: 'test@example.com' })
     ).resolves.toBeDefined();
   });
 
   it('fails with invalid email', async () => {
     await expect(
-      payeeSchema.validate({ ...validPayee, email: 'invalid' })
+      recipientSchema.validate({ ...validRecipient, email: 'invalid' })
     ).rejects.toThrow(/email/i);
   });
 });
@@ -116,7 +116,7 @@ describe('paymentSchema', () => {
 describe('fullSchema', () => {
   it('passes with complete valid data', async () => {
     const completeData = {
-      payeeName: 'John Doe',
+      paymentName: 'John Doe',
       accountNumber: '12345678',
       bankIfsc: 'SBIN0001234',
       amount: 100,

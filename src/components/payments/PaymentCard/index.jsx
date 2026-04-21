@@ -15,7 +15,7 @@ const PaymentCard = ({ payment }) => {
     <Card>
       <CardContent>
         <Box sx={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', mb: 2 }}>
-          <Typography variant="h5">{payment.payeeName}</Typography>
+          <Typography variant="h5">{payment.paymentName}</Typography>
           <StatusChip status={payment.status} />
         </Box>
         <Divider sx={{ mb: 2 }} />

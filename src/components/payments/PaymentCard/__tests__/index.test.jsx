@@ -4,7 +4,7 @@ import PaymentCard from '../index';
 
 const mockPayment = {
   id: 'PAY-001',
-  payeeName: 'Acme Corp',
+  paymentName: 'Acme Corp',
   accountNumber: '12345678901234',
   bankIfsc: 'SBIN0001234',
   email: 'accounts@acme.com',

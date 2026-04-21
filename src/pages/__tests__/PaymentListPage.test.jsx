@@ -24,7 +24,7 @@ describe('PaymentListPage', () => {
     const mockPayments = [
       {
         id: 'PAY-001',
-        payeeName: 'Acme Corp',
+        paymentName: 'Acme Corp',
         amount: 250000,
         currency: 'INR',
         startDate: '2026-04-15',
